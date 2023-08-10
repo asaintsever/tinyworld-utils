@@ -50,7 +50,7 @@ Compiler: gcc (11.2)
 
 ```sh
 # Generate a 160x160 thumbnail
-$ ./magick <your HEIF file> -thumbnail 160x160 jpg:<your thumbnail name>.jpg
+magick <your HEIF file> -thumbnail 160x160 jpg:<your thumbnail name>.jpg
 ```
 
 ## WorlWind Cache for TinyWorld
