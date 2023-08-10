@@ -4,9 +4,9 @@
 
 Supported JRE distributions are stored in [Release](https://github.com/asaintsever/tinyworld-utils/releases). They are used to build the portable and AppImage packages of TinyWorld.
 
-## ImageMagick with HEIC support
+## ImageMagick with HEIF/HEIC support
 
-Linux and Windows static binaries of ImageMagick 7.1.0 with HEIC support can be found in [Release](https://github.com/asaintsever/tinyworld-utils/releases) section.
+Linux x64/arm64 and Windows x64 static binaries of ImageMagick 7.1.0 with HEIF/HEIC support can be found in [Release](https://github.com/asaintsever/tinyworld-utils/releases) section.
 
 Currently, TinyWorld only relies on ImageMagick for thumbnails generation from HEIC photos.
 
@@ -14,18 +14,18 @@ Currently, TinyWorld only relies on ImageMagick for thumbnails generation from H
 
 Linux binary has been compiled from source as existing packages do not come with HEIC support.
 
-Instructions to build static binary on Ubuntu 22.04:
+Instructions to build static binary:
 
 ```sh
-# Install libs for HEIF
-$ sudo apt install libheif-dev libheif1
+# Install libs for HEIF (HEIC) support
+$ sudo apt install libjpeg-dev libheif-dev libheif1
 
 # Clone latest tag
 $ git clone --depth 1 --branch 7.1.0-46 https://github.com/ImageMagick/ImageMagick.git
 $ cd ImageMagick
 
 # Configure build to generate static binaries. Enable HEIC support
-$ ./configure --enable-static=yes --enable-shared=no --prefix=/usr --with-heic=yes --without-magick-plus-plus --without-perl --with-quantum-depth=16
+$ ./configure --enable-static=yes --enable-shared=no --prefix=/usr --with-jpeg=yes --with-heic=yes --without-magick-plus-plus --without-perl --with-quantum-depth=16
 
 # Compile
 $ make
@@ -35,6 +35,7 @@ $ mkdir -p /tmp/MyIM
 $ make install DESTDIR=/tmp/MyIM
 
 # Check HEIC support is enabled
+# Make sure both 'jpeg' and 'heic' are listed in 'Delegates (built-in)'
 $ cd /tmp/MyIM/usr/bin
 $ ./magick -version
 Version: ImageMagick 7.1.0-46 Q16-HDRI x86_64 5ef3d4d66:20220816 https://imagemagick.org
@@ -43,6 +44,13 @@ License: https://imagemagick.org/script/license.php
 Features: Cipher DPC HDRI OpenMP(4.5)
 Delegates (built-in): bzlib djvu fontconfig freetype gvc heic jbig jng jpeg lcms lqr lzma openexr pangocairo png raqm raw tiff webp x zip zlib
 Compiler: gcc (11.2)
+```
+
+### Generate thumbnail from HEIF photo
+
+```sh
+# Generate a 160x160 thumbnail
+$ ./magick <your HEIF file> -thumbnail 160x160 jpg:<your thumbnail name>.jpg
 ```
 
 ## WorlWind Cache for TinyWorld
