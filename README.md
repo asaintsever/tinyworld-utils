@@ -8,7 +8,7 @@ Supported JRE distributions are stored in [Release](https://github.com/asaintsev
 
 Linux x64/arm64 and Windows x64 static binaries of ImageMagick 7.1.0 with HEIF/HEIC support can be found in [Release](https://github.com/asaintsever/tinyworld-utils/releases) section.
 
-Currently, TinyWorld only relies on ImageMagick for thumbnails generation from HEIC photos.
+Currently, TinyWorld only relies on ImageMagick for thumbnails generation from HEIF photos.
 
 ### Linux build
 
@@ -56,5 +56,11 @@ magick <your HEIF file> -thumbnail 160x160 jpg:<your thumbnail name>.jpg
 ## WorlWind Cache for TinyWorld
 
 This repo hosts a [NASA WorldWind](https://worldwind.arc.nasa.gov/java/) cache to use as a starter on any WorldWind-based application, e.g. **[TinyWorld](https://github.com/asaintsever/tinyworld)**. It helps to get first tiles, all the most if you don't have a good Internet connection.
+
+> The cache is available for several tiles format:
+> - DDS
+> - JPEG and PNG (depends on the layer)
+> 
+> For each layer, tiles format is defined via the `ImageFormat` tag in the corresponding layer's config file (e.g. of layers' config files: `Earth/BMNGWMSLayer2.xml`, `Earth/LandsatI3WMSLayer2.xml`).
 
 The data is provided compressed in the [Release](https://github.com/asaintsever/tinyworld-utils/releases) section.
