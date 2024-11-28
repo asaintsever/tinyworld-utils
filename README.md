@@ -2,13 +2,19 @@
 
 ## JRE distros
 
-Supported JRE distributions are stored in [Release](https://github.com/asaintsever/tinyworld-utils/releases). They are used to build the portable and AppImage packages of TinyWorld.
+Supported JRE distributions are available [here](https://github.com/asaintsever/tinyworld-utils/releases/tag/jre-distro). They are included in the portable and AppImage packages of TinyWorld.
 
 ## ImageMagick with HEIF/HEIC support
 
-Linux x64/arm64 and Windows x64 static binaries of ImageMagick 7.1.0 with HEIF/HEIC support can be found in [Release](https://github.com/asaintsever/tinyworld-utils/releases) section.
+Linux x64/arm64 and Windows x64 static binaries of ImageMagick 7.1.0 with HEIF/HEIC support can be found [here](https://github.com/asaintsever/tinyworld-utils/releases/tag/imagemagick-heic).
 
 Currently, TinyWorld only relies on ImageMagick for thumbnails generation from HEIF photos.
+
+On macOS, install ImageMagick with Homebrew (HEIF/HEIC support is enabled by default):
+
+```sh
+brew install imagemagick
+```
 
 ### Linux build
 
@@ -63,4 +69,4 @@ This repo hosts a [NASA WorldWind](https://worldwind.arc.nasa.gov/java/) cache t
 > 
 > For each layer, tiles format is defined via the `ImageFormat` tag in the corresponding layer's config file (e.g. of layers' config files: `Earth/BMNGWMSLayer2.xml`, `Earth/LandsatI3WMSLayer2.xml`).
 
-The data is provided compressed in the [Release](https://github.com/asaintsever/tinyworld-utils/releases) section.
+WorlWind Cache starter can be downloaded [here](https://github.com/asaintsever/tinyworld-utils/releases/tag/ww-cache).
